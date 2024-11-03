@@ -38,7 +38,7 @@ function makeTransaction(quantity, pricePerDroid, customerCredits)
 
 let pricePerDroid = 100;
 
-let customerCredits = prompt("Enter the amount of funds in your account", 0);
+let customerCredits = +prompt("Enter the amount of funds in your account", 0);
 let quantity = +prompt("Enter the number of droids. The price for one is 100 UAH", 0);
 
 let message =  makeTransaction(quantity, pricePerDroid, customerCredits);
