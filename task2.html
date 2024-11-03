@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task2</title>
     <style>
         a {
            font-size:20px ;
@@ -23,6 +23,34 @@
     <p></p>
     <a href="task5.html">Завдання 5</a>
 
+
+    <script>
+        
+function getShoppingMessage(country,price,deliveryFee)
+{
+     let totalPrice = price + deliveryFee; 
+    return (`Shipping to ${country} will cost ${totalPrice} credits`);
+}
+
+let price = 0;
+let deliveryFee = 50;
+
+let country = prompt("Input country for delivery");
+let product = prompt('What do you want buy? \n1 - ball (120UAH) \n2 - board game(250UAH) \n3 - tea(50UAH) \n0 - nothing \nDelivery will cost 50 UAH', 0);
+
+switch (product){
+    case "0": price = 0; break;
+    case "1" : price = 120; break ;
+    case "2" : price = 250; break;
+    case "3" : price = 50; break;  
+    default: alert("Invalid choice. Please enter 0, 1, 2, or 3."); price = 0; break;      
+}
+
+let message = getShoppingMessage (country,price,deliveryFee);
+alert (message);
+console.log (message);
+
+    </script>
 
 </body>
 </html>
