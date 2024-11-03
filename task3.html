@@ -6,11 +6,10 @@
     <title>Task3</title>
     <style>
         a {
-           font-size:20px ;
+            font-size: 20px;
         }
     </style>
 </head>
-
 
 <body>
     <a href="task1.html">Завдання 1</a>
@@ -23,6 +22,26 @@
     <p></p>
     <a href="task5.html">Завдання 5</a>
 
+    <script>
+        function makeArray(firstArray, secondArray, maxLength) {
+            let newArray = firstArray.concat(secondArray);
+
+            if (newArray.length > maxLength) { 
+                return newArray.slice(0, maxLength);
+            } else {
+                return newArray;
+            }
+        }
+
+        let firstArray = [1, 2, 3];
+        let secondArray = [4, 5, 6, 7, 8, 9, 10];
+
+        let maxLength = +prompt("Input the length of array"); 
+
+        let newArray = makeArray(firstArray, secondArray, maxLength);
+        console.log(`Your length of array = ${maxLength}`)
+        console.log(newArray);
+    </script>
 
 </body>
 </html>
