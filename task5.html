@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task5</title>
     <style>
-        a {
+        body, button {
            font-size:20px ;
         }
+
+        .tooltip-css {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            
+        }
+
+        .tooltip-visible {
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -22,6 +38,41 @@
     <a href="task4.html">Завдання 4</a>
     <p></p>
     <a href="task5.html">Завдання 5</a>
+
+    <p id="tooltip-css" data-tooltip="Tooltip">Цей текст має підказку.</p>
+
+    <button id="add-tooltip">Додати підказку</button>
+
+
+<script>
+ 
+    const tooltip = document.createElement('div');  //створ контейнера для підказки
+    tooltip.className = 'tooltip-css';
+    document.body.appendChild(tooltip);
+
+    const tooltipPlace = document.getElementById('tooltip-css');  //підключаємо підказку до абзаца
+
+    tooltipPlace.addEventListener('mouseenter', () => {           //задаємо положення підказки і робимо видимою
+        const text = tooltipPlace.getAttribute('data-tooltip');
+        tooltip.textContent = text;
+        tooltip.style.left = `${tooltipPlace.getBoundingClientRect().left}px`;
+        tooltip.style.top = `${tooltipPlace.getBoundingClientRect().bottom}px`;
+        tooltip.classList.add('tooltip-visible');
+    });
+
+    tooltipPlace.addEventListener('mouseleave', () => {     //робимо невидимою
+        tooltip.classList.remove('tooltip-visible');
+    });
+
+    document.getElementById('add-tooltip').addEventListener('click', () => {
+        const newTooltipText = prompt('Введіть текст підказки:');
+        if (newTooltipText) {
+            tooltipPlace.setAttribute('data-tooltip', newTooltipText);
+        }
+    });
+   
+
+</script>
 
 
 </body>
