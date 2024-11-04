@@ -23,6 +23,66 @@
     <p></p>
     <a href="task5.html">Завдання 5</a>
 
+<script>
+
+function generateArray(length){    
+    let array = [];
+    for (let i=0; i<length; i++){
+        array.push(Math.floor(Math.random() * 100));
+    }
+    return array;
+}
+
+function moveMinElement(array){
+    let index=0;
+    for (let i=1; i<array.length; i++){
+        if (array[i] < array[index])
+        index = i ;
+    }
+    let min = array [index];
+
+    for (let i = index; i > 0; i--) {
+        array[i] = array[i - 1];
+    }
+    array[0]= min;
+
+    return array;
+}
+
+function selectionSort(array){
+    for (let i = 0; i < array.length - 1; i++) {
+        let maxIndex = i;
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[j] > array[maxIndex]) {
+                maxIndex = j;
+                }
+        }              
+        let temp = array[i];
+        array[i] = array[maxIndex];
+        array[maxIndex] = temp;
+    }
+    return array;
+}
+
+
+function printArray(array, message){
+    console.log(message, array.join(", "));
+}
+
+
+let length = +prompt("Input the length of array");
+let array = generateArray(length);
+printArray(array, "Згенерований масив: ");
+
+let minArray = moveMinElement(array);
+printArray(minArray, "Перший елемент мінімальний: ");
+
+let sortArray=selectionSort(array);
+printArray(sortArray, "Відсортований масив методом вибору: ");
+
+</script>
+
+
 
 </body>
 </html>
